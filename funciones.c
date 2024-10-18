@@ -9,18 +9,22 @@ int q=0;
 
 //Obtencion de datos
 void data(char prod[10][20], float price[10]){
-    printf("¿Cuantos productos desea agregar?\n");
-    scanf("%d", &q);
-    while (getchar() != '\n');
-    for (int i=0; i<q; i++){
-        printf("\nIngrese el nombre del producto %d: ", i+1);
-        fgets(prod[i], 20, stdin);
-        prod[i][strcspn(prod[i], "\n")] = '\0';
+    do{
+        printf("Cuantos productos desea agregar?\n");
+        scanf("%d", &q);
+        while (getchar() != '\n');
+        if (q>0 && q<=10){
+            for (int i=0; i<q; i++){
+                printf("\nIngrese el nombre del producto %d: ", i+1);
+                fgets(prod[i], 20, stdin);
+                prod[i][strcspn(prod[i], "\n")] = '\0';
 
-        printf("Ingrese el precio del producto %s: ", prod[i]);
-        scanf("%f", &price[i]);
-        getchar();  //Limpiar el buffer de entrada
-    }
+                printf("Ingrese el precio del producto %s: ", prod[i]);
+                scanf("%f", &price[i]);
+                getchar();  //Limpiar el buffer de entrada
+            }
+        } else printf("Opcion no valida\n");
+    }while (q<0 || q>10);
 }
 
 //Productos maximos

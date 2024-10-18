@@ -6,7 +6,7 @@
 int main (int argc, char *argv[]) {
 
     char nom[20]; 
-    int op1=0, op2=0;
+    int op1=0;
 
     //Obtecion de datos
     data(prod, price);
